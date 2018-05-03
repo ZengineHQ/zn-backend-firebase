@@ -5,7 +5,7 @@ Helper library for working with Firebase in Zengine Plugins.
 ## Installation
 
 ```bash
-npm install git+ssh://git@github.com/WizeHive/zengo --save
+npm install git+ssh://git@github.com/WizeHive/zn-helper-firebase --save
 ```
 
 ## Usage
