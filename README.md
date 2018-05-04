@@ -1,6 +1,6 @@
 # zn-helper-firebase
 
-Helper library for working with Firebase in Zengine Plugins.
+Helper library for working with Firebase in Zengine backend Plugins.
 
 ## Installation
 
