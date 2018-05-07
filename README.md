@@ -1,11 +1,11 @@
-# zn-helper-firebase
+# zn-backend-firebase
 
 Helper library for working with Firebase in Zengine backend Plugins.
 
 ## Installation
 
 ```bash
-npm install git+ssh://git@github.com/WizeHive/zn-helper-firebase --save
+npm install git+ssh://git@github.com/WizeHive/zn-backend-firebase --save
 ```
 
 ## Usage
