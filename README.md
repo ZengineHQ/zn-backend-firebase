@@ -22,7 +22,7 @@ zfb.load(workspaceId).then(function (data) {
 
 // Save data.
 zfb.save(workspaceId, dataObj).then(function () {
-  console.log('success');
+  console.log('success!');
 }).catch(function (err) {
   console.error(err);
 });
@@ -34,4 +34,7 @@ zfb.load([workspaceId, formId, recordId]).then(function (data) {
 }).catch(function (err) {
   console.error(err);
 });
+
+// You can also pass a long string if that's your thing.
+zfb.load('foo/bar/baz/' + workspaceId + '/etc');
 ```
