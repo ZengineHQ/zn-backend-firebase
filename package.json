@@ -1,25 +1,25 @@
 {
-  "name": "zn-helper-firebase",
+  "name": "zn-backend-firebase",
   "version": "1.0.0",
-  "description": "Helper library for working with Firebase in Zengine plugins.",
+  "description": "Helper library for working with Firebase in Zengine backend plugins.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wizehive/zn-helper-firebase.git"
+    "url": "git+https://github.com/Wizehive/zn-backend-firebase.git"
   },
   "keywords": [
     "zn-plugin",
-    "zn-helper"
+    "zn-backend"
   ],
   "author": "Alex Weber <alex.weber@wizehive.com",
   "private": true,
   "bugs": {
-    "url": "https://github.com/Wizehive/zn-helper-firebase/issues"
+    "url": "https://github.com/Wizehive/zn-backend-firebase/issues"
   },
-  "homepage": "https://github.com/Wizehive/zn-helper-firebase#readme",
+  "homepage": "https://github.com/Wizehive/zn-backend-firebase#readme",
   "dependencies": {
     "q": "^1.5.1"
   }

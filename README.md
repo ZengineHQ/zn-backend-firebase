@@ -11,24 +11,24 @@ npm install git+ssh://git@github.com/WizeHive/zn-backend-firebase --save
 ## Usage
 
 ```js
-var zfb = require('zn-helper-firebase');
+var zbf = require('zn-backend-firebase');
 
 // Load data.
-zfb.load(workspaceId).then(function (data) {
+zbf.load(workspaceId).then(function (data) {
   console.log('it works!', data);
 }).catch(function (err) {
   console.error(err);
 });
 
 // Save data.
-zfb.save(workspaceId, dataObj).then(function () {
+zbf.save(workspaceId, dataObj).then(function () {
   console.log('success!');
 }).catch(function (err) {
   console.error(err);
 });
 
 // Use arrays to formulate complex Firebase paths for both loading and saving.
-zfb.load([workspaceId, formId, recordId]).then(function (data) {
+zbf.load([workspaceId, formId, recordId]).then(function (data) {
   // This will expand to: <firebaseRoot>/workspaceId/formId/recordId
   console.log('it works!', data);
 }).catch(function (err) {
@@ -36,5 +36,5 @@ zfb.load([workspaceId, formId, recordId]).then(function (data) {
 });
 
 // You can also pass a long string if that's your thing.
-zfb.load('foo/bar/baz/' + workspaceId + '/etc');
+zbf.load('foo/bar/baz/' + workspaceId + '/etc');
 ```
