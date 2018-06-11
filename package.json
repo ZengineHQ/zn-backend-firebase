@@ -1,26 +1,32 @@
 {
-  "name": "zn-backend-firebase",
+  "name": "@zenginehq/backend-firebase",
   "version": "1.0.0",
-  "description": "Helper library for working with Firebase in Zengine backend plugins.",
+  "description": "Helper library for working with znFirebase in Zengine backend plugins.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "jshint --config .jshintrc index.js || true",
+    "release": "jshint --config .jshintrc index.js && standard-version"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wizehive/zn-backend-firebase.git"
+    "url": "git+https://github.com/ZengineHQ/zn-backend-firebase.git"
   },
   "keywords": [
     "zn-plugin",
     "zn-backend"
   ],
   "author": "Alex Weber <alex.weber@wizehive.com",
-  "private": true,
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wizehive/zn-backend-firebase/issues"
+    "url": "https://github.com/ZengineHQ/zn-backend-firebase/issues"
   },
-  "homepage": "https://github.com/Wizehive/zn-backend-firebase#readme",
+  "homepage": "https://github.com/ZengineHQ/zn-backend-firebase#readme",
   "dependencies": {
     "q": "^1.5.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5",
+    "standard-version": "^4.4.0"
   }
 }
