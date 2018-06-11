@@ -43,7 +43,7 @@ module.exports.load = function (path) {
 	});
 
 	return def.promise;
-}
+};
 
 /**
  * Helper to save arbitrary data to Firebase.
@@ -69,4 +69,4 @@ module.exports.save = function (path, data) {
 	});
 
 	return def.promise;
-}
+};
