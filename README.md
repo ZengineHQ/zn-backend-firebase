@@ -79,7 +79,7 @@ zbf.save([workspaceId, 'undesiredField'], null).then(function () {
   })
 
 // all the good vibes
-zbf.save([workspaceId], {'undesiredField': null})
+zbf.save(workspaceId, {'undesiredField': null})
   .then(function () {
     // great work, team!
   })
