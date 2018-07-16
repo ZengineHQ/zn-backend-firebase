@@ -9,6 +9,7 @@ var Q = require('q');
  * @param {string} path
  *
  * @returns {Firebase}
+ * @private
  */
 function expandFirebasePath (path) {
 	var ref = znFirebase();
