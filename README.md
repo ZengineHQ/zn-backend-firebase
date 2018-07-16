@@ -84,3 +84,7 @@ $firebase.save(workspaceId, {'undesiredField': null})
     // great work, team!
   })
 ```
+
+## API Docs
+
+[Full documentation](https://zenginehq.github.io/zn-backend-firebase)
