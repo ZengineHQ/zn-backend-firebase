@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "jshint --config .jshintrc index.js || true",
+    "docs": "jsdoc index.js README.md --destination docs",
     "release": "jshint --config .jshintrc index.js && standard-version"
   },
   "repository": {
@@ -14,7 +15,8 @@
   },
   "keywords": [
     "zn-plugin",
-    "zn-backend"
+    "zn-backend",
+    "firebase"
   ],
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "license": "MIT",
@@ -26,7 +28,11 @@
     "q": "^1.5.1"
   },
   "devDependencies": {
+    "jsdoc": "^3.5.5",
     "jshint": "^2.9.5",
     "standard-version": "^4.4.0"
+  },
+  "engines": {
+    "node": ">=8"
   }
 }
