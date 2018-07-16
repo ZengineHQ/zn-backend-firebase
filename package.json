@@ -14,7 +14,8 @@
   },
   "keywords": [
     "zn-plugin",
-    "zn-backend"
+    "zn-backend",
+    "firebase"
   ],
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "license": "MIT",
@@ -29,7 +30,7 @@
     "jshint": "^2.9.5",
     "standard-version": "^4.4.0"
   },
-  "engines" : {
-	  "node" : ">=8"
+  "engines": {
+    "node": ">=8"
   }
 }
