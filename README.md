@@ -11,12 +11,12 @@ npm i @zenginehq/backend-firebase --save
 ## Usage
 
 ```js
-var zbf = require('@zenginehq/backend-firebase');
+var $firebase = require('@zenginehq/backend-firebase');
 
 var workspaceId = 11111
 
 // Load data.
-zbf.load(workspaceId).then(function (data) {
+$firebase.load(workspaceId).then(function (data) {
   console.log('it works!', data);
   // data fetched from <firebaseRoot>/11111
 }).catch(function (err) {
@@ -30,7 +30,7 @@ var dataObj = {
   // but dataObj (2nd argument of .save()) must be an object
 }
 
-zbf.save(workspaceId, dataObj).then(function () {
+$firebase.save(workspaceId, dataObj).then(function () {
   console.log('success!');
   // someData was saved at <firebaseRoot>/11111/childRoute
 }).catch(function (err) {
@@ -42,7 +42,7 @@ var recordId = 222
 var deleteObj = {}
 deleteObj[recordId] = null
 
-zbf.save(workspaceId, deleteObj).then(function () {
+$firebase.save(workspaceId, deleteObj).then(function () {
   console.log('success!');
   // the firebase route <firebaseRoot>/11111/222
   // and all data it contained has been deleted
@@ -54,7 +54,7 @@ zbf.save(workspaceId, deleteObj).then(function () {
 var formId = 222
 var recordId = 333
 
-zbf.load([workspaceId, formId, recordId, 'settings']).then(function (data) {
+$firebase.load([workspaceId, formId, recordId, 'settings']).then(function (data) {
   // This will expand to: <firebaseRoot>/11111/222/333/settings
   console.log('it works!', data);
 }).catch(function (err) {
@@ -62,7 +62,7 @@ zbf.load([workspaceId, formId, recordId, 'settings']).then(function (data) {
 });
 
 // You can also pass a long string if that's your thing.
-zbf.load('foo/bar/baz/' + workspaceId + '/etc');
+$firebase.load('foo/bar/baz/' + workspaceId + '/etc');
 ```
 
 _Note about Deletions_
@@ -74,12 +74,12 @@ See [Firebase docs](https://www.firebase.com/docs/web/api/firebase/update.html) 
 Ex:
 ```js
 // much regrets
-zbf.save([workspaceId, 'undesiredField'], null).then(function () {
+$firebase.save([workspaceId, 'undesiredField'], null).then(function () {
     //etc...
   })
 
 // all the good vibes
-zbf.save(workspaceId, {'undesiredField': null})
+$firebase.save(workspaceId, {'undesiredField': null})
   .then(function () {
     // great work, team!
   })
