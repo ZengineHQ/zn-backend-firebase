@@ -13,7 +13,7 @@ npm i @zenginehq/backend-firebase --save
 ```js
 var $firebase = require('@zenginehq/backend-firebase');
 
-var workspaceId = 11111
+var workspaceId = 11111;
 
 // Load data.
 $firebase.load(workspaceId).then(function (data) {
