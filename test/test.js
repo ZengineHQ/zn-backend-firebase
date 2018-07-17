@@ -14,6 +14,12 @@ describe('module', function () {
 		mockery.disable();
 	});
 
+	it('should expand firebase paths', function () {
+		expect($firebase.expandPath('foo').path).to.equal('foo');
+		expect($firebase.expandPath('foo/bar/baz').path).to.equal('foo/bar/baz');
+		expect($firebase.expandPath(['foo']).path).to.equal('foo');
+		expect($firebase.expandPath(['foo', 'bar', 'baz']).path).to.equal('foo/bar/baz');
+	});
 
 	it('should load data from firebase', function () {
 		return $firebase.load('foo').then(function (val) {

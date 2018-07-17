@@ -8,9 +8,13 @@ const snapshot = {
 
 module.exports = function () {
 	const obj = {
-		child: () => obj,
+		child: (path) => {
+			obj.path = path;
+			return obj;
+		},
 		once: (s, cb) => cb(snapshot),
 		update: (d, cb) => cb(),
+		path: ''
 	};
 
 	return obj;
