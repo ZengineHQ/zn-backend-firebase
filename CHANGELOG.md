@@ -17,7 +17,6 @@ All notable changes to this project will be documented in this file. See [standa
 * rename expandPath and make it public ([4d572de](https://github.com/ZengineHQ/zn-backend-firebase/commit/4d572de))
 
 
-
 <a name="1.0.1"></a>
 ## 1.0.1 (2018-06-11)
 
@@ -31,13 +30,3 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * initial implementation ([fb0b3a9](https://github.com/ZengineHQ/zn-backend-firebase/commit/fb0b3a9))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2018-06-11)
-
-
-### Bug Fixes
-
-* regression due to scoped package ([5398729](https://github.com/ZengineHQ/zn-backend-firebase/commit/5398729))
