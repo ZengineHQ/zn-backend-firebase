@@ -4,7 +4,7 @@
   "description": "Helper library for working with znFirebase in Zengine backend plugins.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec --no-colors --require test/bootstrap.js",
+    "test": "mocha --reporter spec --no-colors --require test/_bootstrap.js",
     "lint": "jshint --config .jshintrc index.js || true",
     "docs": "jsdoc index.js README.md --destination docs",
     "cover": "nyc --reporter=lcov npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
