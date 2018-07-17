@@ -5,12 +5,12 @@ let $firebase;
 
 describe('module', function () {
 
-	before(function() {
+	before(function () {
 		mockery.enable();
 		$firebase = require('../index');
 	});
 
-	after(function() {
+	after(function () {
 		mockery.disable();
 	});
 
@@ -21,4 +21,7 @@ describe('module', function () {
 		});
 	});
 
+	it('should save data to firebase', function () {
+		return $firebase.save('foo', {}).should.be.fulfilled;
+	});
 });
