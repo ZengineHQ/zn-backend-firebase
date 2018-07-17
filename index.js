@@ -35,7 +35,7 @@ module.exports.expandPath = function (path) {
 module.exports.load = function (path) {
 	var def = Q.defer();
 
-	expandPath(path).once('value', function(snapshot) {
+	module.exports.expandPath(path).once('value', function(snapshot) {
 		def.resolve(snapshot.val());
 	}, function (err) {
 		def.reject(err);
@@ -58,7 +58,7 @@ module.exports.load = function (path) {
 module.exports.save = function (path, data) {
 	var def = Q.defer();
 
-	expandPath(path).update(data, function (err) {
+	module.exports.expandPath(path).update(data, function (err) {
 		if (err) {
 			def.reject(err);
 		} else {
