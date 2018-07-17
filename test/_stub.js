@@ -12,8 +12,10 @@ module.exports = function () {
 			obj.path = path;
 			return obj;
 		},
-		once: (s, cb) => cb(snapshot),
-		update: (d, cb) => cb(),
+		once: (s, cb, err) => {
+			return !obj.path ? err() : cb(snapshot)
+		},
+		update: (d, cb) => cb(!d),
 		path: ''
 	};
 

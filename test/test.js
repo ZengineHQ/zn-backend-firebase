@@ -27,7 +27,15 @@ describe('module', function () {
 		});
 	});
 
+	it('should catch errors when loading data', function () {
+		return $firebase.load(false).should.be.rejected;
+	});
+
 	it('should save data to firebase', function () {
-		return $firebase.save('foo', {}).should.be.fulfilled;
+		return $firebase.save('foo', true).should.be.fulfilled;
+	});
+
+	it('should catch errors when saving data', function () {
+		return $firebase.save('foo', false).should.be.rejected;
 	});
 });
