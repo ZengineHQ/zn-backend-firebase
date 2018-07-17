@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/backend-firebase",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Helper library for working with znFirebase in Zengine backend plugins.",
   "main": "index.js",
   "scripts": {
