@@ -2,6 +2,8 @@
 
 > Helper module for working with znFirebase in Zengine backend Plugins.
 
+[![Coverage Status](https://coveralls.io/repos/github/ZengineHQ/zn-backend-firebase/badge.svg?branch=master)](https://coveralls.io/github/ZengineHQ/zn-backend-firebase?branch=master)
+
 ## Installation
 
 ```bash
