@@ -4,14 +4,13 @@ var znFirebase = require('../../../lib/zn-firebase');
 var Q = require('q');
 
 /**
- * Helper to expand a generic Firebase path and return a reference.
+ * Expand a generic Firebase path and return a reference to it.
  *
  * @param {string} path
  *
  * @returns {Firebase} A Firebase reference.
- * @private
  */
-function expandFirebasePath (path) {
+module.exports.expandPath = function (path) {
 	var ref = znFirebase();
 
 	if (Array.isArray(path) && path.length) {
@@ -21,7 +20,7 @@ function expandFirebasePath (path) {
 	}
 
 	return ref;
-}
+};
 
 /**
  * Helper to load data from Firebase.
@@ -31,12 +30,12 @@ function expandFirebasePath (path) {
  *
  * @return {Promise<Object>}
  *
- * @see expandFirebasePath
+ * @see expandPath
  */
 module.exports.load = function (path) {
 	var def = Q.defer();
 
-	expandFirebasePath(path).once('value', function(snapshot) {
+	expandPath(path).once('value', function(snapshot) {
 		def.resolve(snapshot.val());
 	}, function (err) {
 		def.reject(err);
@@ -54,12 +53,12 @@ module.exports.load = function (path) {
  *
  * @return {Promise}
  *
- * @see expandFirebasePath
+ * @see expandPath
  */
 module.exports.save = function (path, data) {
 	var def = Q.defer();
 
-	expandFirebasePath(path).update(data, function (err) {
+	expandPath(path).update(data, function (err) {
 		if (err) {
 			def.reject(err);
 		} else {
