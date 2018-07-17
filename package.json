@@ -7,7 +7,7 @@
     "test": "mocha --reporter spec --no-colors --require test/bootstrap.js",
     "lint": "jshint --config .jshintrc index.js || true",
     "docs": "jsdoc index.js README.md --destination docs",
-    "release": "jshint --config .jshintrc index.js && standard-version"
+    "release": "jshint --config .jshintrc index.js && npm test && standard-version"
   },
   "repository": {
     "type": "git",
