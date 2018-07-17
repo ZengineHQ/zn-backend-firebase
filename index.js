@@ -8,7 +8,7 @@ var Q = require('q');
  *
  * @param {string} path
  *
- * @returns {Firebase}
+ * @returns {Firebase} A Firebase reference.
  * @private
  */
 function expandFirebasePath (path) {
@@ -26,10 +26,10 @@ function expandFirebasePath (path) {
 /**
  * Helper to load data from Firebase.
  *
- * @param {Array<string>} path An array of path components that will be concatenated with '/' as the separator.
+ * @param {Array<string>|string} path A string or an array of path components that will be concatenated with '/' as the separator.
  * 	Ex: ['foo', 'bar', 'baz'] will become 'foo/bar/baz'
  *
- * @return {Promise}
+ * @return {Promise<Object>}
  *
  * @see expandFirebasePath
  */
