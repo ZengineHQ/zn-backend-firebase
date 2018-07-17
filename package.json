@@ -4,7 +4,7 @@
   "description": "Helper library for working with znFirebase in Zengine backend plugins.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter min --require test/bootstrap.js",
     "lint": "jshint --config .jshintrc index.js || true",
     "docs": "jsdoc index.js README.md --destination docs",
     "release": "jshint --config .jshintrc index.js && standard-version"
@@ -28,8 +28,12 @@
     "q": "^1.5.1"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "jsdoc": "^3.5.5",
     "jshint": "^2.9.5",
+    "mocha": "^5.2.0",
+    "mockery": "^2.1.0",
     "standard-version": "^4.4.0"
   },
   "engines": {
