@@ -35,9 +35,8 @@ function expandFirebasePath (path) {
  */
 module.exports.load = function (path) {
 	var def = Q.defer();
-	var ref = expandFirebasePath(path);
 
-	ref.once('value', function(snapshot) {
+	expandFirebasePath(path).once('value', function(snapshot) {
 		def.resolve(snapshot.val());
 	}, function (err) {
 		def.reject(err);
@@ -59,9 +58,8 @@ module.exports.load = function (path) {
  */
 module.exports.save = function (path, data) {
 	var def = Q.defer();
-	var ref = expandFirebasePath(path);
 
-	ref.update(data, function (err) {
+	expandFirebasePath(path).update(data, function (err) {
 		if (err) {
 			def.reject(err);
 		} else {
