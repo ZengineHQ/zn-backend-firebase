@@ -4,14 +4,13 @@ var znFirebase = require('../../../lib/zn-firebase');
 var Q = require('q');
 
 /**
- * Helper to expand a generic Firebase path and return a reference.
+ * Expand a generic Firebase path and return a reference to it.
  *
  * @param {string} path
  *
- * @returns {Firebase}
- * @private
+ * @returns {Firebase} A Firebase reference.
  */
-function expandFirebasePath (path) {
+module.exports.expandPath = function (path) {
 	var ref = znFirebase();
 
 	if (Array.isArray(path) && path.length) {
@@ -21,23 +20,22 @@ function expandFirebasePath (path) {
 	}
 
 	return ref;
-}
+};
 
 /**
  * Helper to load data from Firebase.
  *
- * @param {Array<string>} path An array of path components that will be concatenated with '/' as the separator.
+ * @param {Array<string>|string} path A string or an array of path components that will be concatenated with '/' as the separator.
  * 	Ex: ['foo', 'bar', 'baz'] will become 'foo/bar/baz'
  *
- * @return {Promise}
+ * @return {Promise<Object>}
  *
- * @see expandFirebasePath
+ * @see expandPath
  */
 module.exports.load = function (path) {
 	var def = Q.defer();
-	var ref = expandFirebasePath(path);
 
-	ref.once('value', function(snapshot) {
+	module.exports.expandPath(path).once('value', function(snapshot) {
 		def.resolve(snapshot.val());
 	}, function (err) {
 		def.reject(err);
@@ -55,13 +53,12 @@ module.exports.load = function (path) {
  *
  * @return {Promise}
  *
- * @see expandFirebasePath
+ * @see expandPath
  */
 module.exports.save = function (path, data) {
 	var def = Q.defer();
-	var ref = expandFirebasePath(path);
 
-	ref.update(data, function (err) {
+	module.exports.expandPath(path).update(data, function (err) {
 		if (err) {
 			def.reject(err);
 		} else {

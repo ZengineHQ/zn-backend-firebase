@@ -2,6 +2,8 @@
 
 > Helper module for working with znFirebase in Zengine backend Plugins.
 
+[![Coverage Status](https://coveralls.io/repos/github/ZengineHQ/zn-backend-firebase/badge.svg?branch=master)](https://coveralls.io/github/ZengineHQ/zn-backend-firebase?branch=master)
+
 ## Installation
 
 ```bash
@@ -13,7 +15,7 @@ npm i @zenginehq/backend-firebase --save
 ```js
 var $firebase = require('@zenginehq/backend-firebase');
 
-var workspaceId = 11111
+var workspaceId = 11111;
 
 // Load data.
 $firebase.load(workspaceId).then(function (data) {
