@@ -13,3 +13,4 @@ global.fail = chai.assert.fail;
 const mockery = require('mockery');
 mockery.registerSubstitute('../../../lib/zn-firebase', './test/stub');
 mockery.registerAllowables(['../index', 'q']);
+mockery.warnOnUnregistered(false);

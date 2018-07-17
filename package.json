@@ -4,7 +4,7 @@
   "description": "Helper library for working with znFirebase in Zengine backend plugins.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec --no-colors --require test/bootstrap.js",
+    "test": "nyc mocha --reporter spec --no-colors --require test/bootstrap.js",
     "lint": "jshint --config .jshintrc index.js || true",
     "docs": "jsdoc index.js README.md --destination docs",
     "release": "jshint --config .jshintrc index.js && npm test && standard-version"
@@ -34,6 +34,7 @@
     "jshint": "^2.9.5",
     "mocha": "^5.2.0",
     "mockery": "^2.1.0",
+    "nyc": "^12.0.2",
     "standard-version": "^4.4.0"
   },
   "engines": {
