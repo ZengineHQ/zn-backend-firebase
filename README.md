@@ -77,14 +77,13 @@ Ex:
 ```js
 // much regrets
 $firebase.save([workspaceId, 'undesiredField'], null).then(function () {
-    //etc...
-  })
+  //etc...
+})
 
 // all the good vibes
-$firebase.save(workspaceId, {'undesiredField': null})
-  .then(function () {
-    // great work, team!
-  })
+$firebase.save(workspaceId, {'undesiredField': null}).then(function () {
+  // great work, team!
+});
 ```
 
 ## API Docs
