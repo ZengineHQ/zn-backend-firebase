@@ -1,6 +1,6 @@
 'use strict';
 
-var znFirebase = require('../zn-plugin-sreb-number-assignment/backend/assign-number/lib/zn-firebase');
+var znFirebase = require('../../../lib/zn-firebase');
 var Q = require('q');
 
 /**
