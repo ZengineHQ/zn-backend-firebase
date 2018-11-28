@@ -83,15 +83,15 @@ module.exports.save = function (path, data) {
  */
 module.exports.transaction = function (path, updateFunction, applyLocally) {
 	var def = Q.defer();
-	var ref = expandFirebasePath(path);
+	var ref = module.exports.expandFirebasePath(path);
 
 	ref.transaction(updateFunction, function (err, committed, snapshot) {
 		if (err || !committed) {
-			def.reject(err || 'update function return undefined; value not saved')
+			def.reject(err || 'update function return undefined; value not saved');
 		} else {
-			def.resolve(snapshot.val())
+			def.resolve(snapshot.val());
 		}
 	}, applyLocally);
 
 	return def.promise;
-}
+};
