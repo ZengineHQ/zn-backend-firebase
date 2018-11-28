@@ -38,4 +38,16 @@ describe('module', function () {
 	it('should catch errors when saving data', function () {
 		return $firebase.save('foo', false).should.be.rejected;
 	});
+
+	it('should complete firebase transactions', function () {
+		return $firebase.transaction('foo', value => value + 1, true).should.be.fulfilled;
+	});
+
+	it('should reject if firebase transaction is not effective', function () {
+		return $firebase.transaction('foo', value => { }, false).should.be.rejected;
+	});
+
+	it('should catch errors during firebase transactions', function () {
+		return $firebase.transaction('foo', new Error('will fail'), false).should.be.rejected;
+	});
 });

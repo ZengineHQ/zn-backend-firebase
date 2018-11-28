@@ -70,20 +70,27 @@ module.exports.save = function (path, data) {
 };
 
 /**
- * Helper to save arbitrary data to Firebase.
+ * @callback updateFunction A developer-supplied function which will be passed the current data stored at this location (as a JavaScript object). The function should return the new value it would like written (as a JavaScript object). If undefined is returned (i.e. you return with no arguments) the transaction will be aborted and the data at this location will not be modified.
+ * @param {string|number|boolean|null} value initial value in Firebase
+ * @returns {string|number|boolean|void} updated value
+ */
+
+/**
+ * Atomically modifies and then returns the data at this location. Full firebase documentation:
+ * https://www.firebase.com/docs/web/api/firebase/transaction.html
  *
  * @param {Array<string>} path An array of path components that will be concatenated with '/' as the separator.
  * 	Ex: ['foo', 'bar', 'baz'] will become 'foo/bar/baz'
- * @param {function(string|number|boolean|null): string|number|boolean|undefined} updateFunction A developer-supplied function which will be passed the current data stored at this location (as a JavaScript object). The function should return the new value it would like written (as a JavaScript object). If undefined is returned (i.e. you return with no arguments) the transaction will be aborted and the data at this location will not be modified.
+ * @param {updateFunction} updateFunction A developer-supplied function which will be passed the current data stored at this location (as a JavaScript object). The function should return the new value it would like written (as a JavaScript object). If undefined is returned (i.e. you return with no arguments) the transaction will be aborted and the data at this location will not be modified.
  * @param {boolean} applyLocally By default, events are raised each time the transaction update function runs. So if it is run multiple times, you may see intermediate states. You can set this to false to suppress these intermediate states and instead wait until the transaction has completed before events are raised.
  *
  * @return {Promise<string|number|boolean>} Value from the onComplete Function
  *
- * @see expandFirebasePath
+ * @see expandPath
  */
 module.exports.transaction = function (path, updateFunction, applyLocally) {
 	var def = Q.defer();
-	var ref = module.exports.expandFirebasePath(path);
+	var ref = module.exports.expandPath(path);
 
 	ref.transaction(updateFunction, function (err, committed, snapshot) {
 		if (err || !committed) {
