@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/ZengineHQ/zn-backend-firebase/compare/1.2.1...2.0.0) (2019-02-07)
+
+
+### Features
+
+* pass firebase ref ([dc5b2ff](https://github.com/ZengineHQ/zn-backend-firebase/commit/dc5b2ff))
+
+
+### BREAKING CHANGES
+
+* must invoke library as a function, $firebase().load()
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/ZengineHQ/zn-backend-firebase/compare/1.2.0...1.2.1) (2018-11-28)
 
