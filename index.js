@@ -2,20 +2,33 @@
 
 const Q = require('q');
 
-let Firebase = function(znFirebase) {
 
-	const firebase = {};
+/** @class
+* @param {Firebase} fbRef A Firebase reference
+*/
+function FirebaseFactory(fbRef) {
+
+	/** @lends Firebase.prototype */
+	return {
+		expandPath: expandPath,
+		load: load,
+		save: save,
+		transaction: transaction
+	};
 
 	/**
-	 * Expand a generic Firebase path and return a reference to it.
+	 * @function expandPath
+	 * @memberof FirebaseFactory
+	 * @description Expand a generic Firebase path and return a reference to it.
 	 *
-	 * @param {string} path
+	 * @param {Array<string>|string} path A string or an array of path components that will be concatenated with '/' as the separator.
+	 * 	Ex: ['foo', 'bar', 'baz'] will become 'foo/bar/baz'
 	 *
 	 * @returns {Firebase} A Firebase reference.
 	 */
-	firebase.expandPath = function (path) {
+	function expandPath (path) {
 
-		let ref = znFirebase;
+		let ref = fbRef;
 
 		if (!ref) {
 			ref = require('../../../lib/zn-firebase')();
@@ -31,7 +44,9 @@ let Firebase = function(znFirebase) {
 	};
 
 	/**
-	 * Helper to load data from Firebase.
+	 * @function load
+	 * @memberof FirebaseFactory
+	 * @description Helper to load data from Firebase.
 	 *
 	 * @param {Array<string>|string} path A string or an array of path components that will be concatenated with '/' as the separator.
 	 * 	Ex: ['foo', 'bar', 'baz'] will become 'foo/bar/baz'
@@ -40,10 +55,10 @@ let Firebase = function(znFirebase) {
 	 *
 	 * @see expandPath
 	 */
-	firebase.load = function (path) {
+	function load (path) {
 		let def = Q.defer();
 
-		firebase.expandPath(path).once('value', function(snapshot) {
+		expandPath(path).once('value', function(snapshot) {
 			def.resolve(snapshot.val());
 		}, function (err) {
 			def.reject(err);
@@ -53,7 +68,9 @@ let Firebase = function(znFirebase) {
 	};
 
 	/**
-	 * Helper to save arbitrary data to Firebase.
+	 * @function save
+	 * @memberof FirebaseFactory
+	 * @description Helper to save arbitrary data to Firebase.
 	 *
 	 * @param {Array<string>} path An array of path components that will be concatenated with '/' as the separator.
 	 * 	Ex: ['foo', 'bar', 'baz'] will become 'foo/bar/baz'
@@ -63,10 +80,10 @@ let Firebase = function(znFirebase) {
 	 *
 	 * @see expandPath
 	 */
-	firebase.save = function (path, data) {
+	function save(path, data) {
 		let def = Q.defer();
 
-		firebase.expandPath(path).update(data, function (err) {
+		expandPath(path).update(data, function (err) {
 			if (err) {
 				def.reject(err);
 			} else {
@@ -88,7 +105,9 @@ let Firebase = function(znFirebase) {
 	 */
 
 	/**
-	 * Atomically modifies and then returns the data at this location. Full firebase documentation:
+	 * @function transaction
+	 * @memberof FirebaseFactory
+	 * @description Atomically modifies and then returns the data at this location. Full firebase documentation:
 	 * https://www.firebase.com/docs/web/api/firebase/transaction.html
 	 *
 	 * @param {Array<string>} path An array of path components that will be concatenated with '/' as the separator.
@@ -100,9 +119,9 @@ let Firebase = function(znFirebase) {
 	 *
 	 * @see expandPath
 	 */
-	firebase.transaction = function (path, updateFunction, applyLocally) {
+	function transaction(path, updateFunction, applyLocally) {
 		let def = Q.defer();
-		let ref = firebase.expandPath(path);
+		let ref = expandPath(path);
 
 		ref.transaction(updateFunction, function (err, committed, snapshot) {
 			if (err || !committed) {
@@ -115,9 +134,7 @@ let Firebase = function(znFirebase) {
 		return def.promise;
 	};
 
-	return firebase;
-
 };
 
-module.exports = Firebase;
+module.exports = FirebaseFactory;
 
