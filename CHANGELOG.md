@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/ZengineHQ/zn-backend-firebase/compare/2.0.0...2.0.1) (2019-02-07)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/ZengineHQ/zn-backend-firebase/compare/1.2.1...2.0.0) (2019-02-07)
 
