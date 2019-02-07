@@ -1,17 +1,13 @@
 'use strict';
 
-const mockery = require('mockery');
 let $firebase;
 
 describe('module', function () {
 
-	before(function () {
-		mockery.enable();
-		$firebase = require('../index');
-	});
+	beforeEach(function () {
+		const stub = require('./_stub')();
 
-	after(function () {
-		mockery.disable();
+		$firebase = require('../index')(stub);
 	});
 
 	it('should expand firebase paths', function () {

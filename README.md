@@ -13,7 +13,7 @@ npm i @zenginehq/backend-firebase --save
 ## Usage
 
 ```js
-var $firebase = require('@zenginehq/backend-firebase');
+var $firebase = require('@zenginehq/backend-firebase')();
 
 var workspaceId = 11111;
 
@@ -85,6 +85,9 @@ $firebase.save(workspaceId, {'undesiredField': null}).then(function () {
   // great work, team!
 });
 ```
+
+## Contributing
+See [contributing](CONTRIBUTING.md) doc
 
 ## API Docs
 
