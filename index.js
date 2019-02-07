@@ -41,7 +41,7 @@ function FirebaseFactory(fbRef) {
 		}
 
 		return ref;
-	};
+	}
 
 	/**
 	 * @function load
@@ -65,7 +65,7 @@ function FirebaseFactory(fbRef) {
 		});
 
 		return def.promise;
-	};
+	}
 
 	/**
 	 * @function save
@@ -92,7 +92,7 @@ function FirebaseFactory(fbRef) {
 		});
 
 		return def.promise;
-	};
+	}
 
 	/**
 	 * @callback updateFunction A developer-supplied function which will be passed
@@ -132,9 +132,9 @@ function FirebaseFactory(fbRef) {
 		}, applyLocally);
 
 		return def.promise;
-	};
+	}
 
-};
+}
 
 module.exports = FirebaseFactory;
 
